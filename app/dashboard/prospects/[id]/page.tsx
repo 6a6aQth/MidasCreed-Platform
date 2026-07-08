@@ -74,17 +74,17 @@ export default async function ProspectDetailPage(props: any) {
                     {/* Historical Context (Collapsed completed stages) */}
                     <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground bg-accent/30 p-4 rounded-md border border-border/50">
                         {prospect.firstContactDate && (
-                            <Link href="?edit=1" scroll={false} className="hover:text-primary transition-colors hover:underline" title="Click to edit Stage 1">
+                            <Link href="?edit=1" scroll={false} className="hover:text-foreground transition-colors hover:underline" title="Click to edit Stage 1">
                                 First contact: {prospect.firstContactDate.toLocaleDateString()} {prospect.contactChannel && `(${prospect.contactChannel})`}
                             </Link>
                         )}
                         {prospect.replied && (
-                            <Link href="?edit=2" scroll={false} className="hover:text-primary transition-colors hover:underline" title="Click to edit Stage 2">
+                            <Link href="?edit=2" scroll={false} className="hover:text-foreground transition-colors hover:underline" title="Click to edit Stage 2">
                                 · Replied: Yes
                             </Link>
                         )}
                         {prospect.meetingDone && prospect.meetingDate && (
-                            <Link href="?edit=2" scroll={false} className="hover:text-primary transition-colors hover:underline" title="Click to edit Meeting details">
+                            <Link href="?edit=2" scroll={false} className="hover:text-foreground transition-colors hover:underline" title="Click to edit Meeting details">
                                 · Meeting: {prospect.meetingDate.toLocaleDateString()}
                                 {prospect.meetingTime && ` @ ${prospect.meetingTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`}
                                 {prospect.meetingType && ` (${prospect.meetingType.replace('_', ' ')})`}
@@ -92,7 +92,7 @@ export default async function ProspectDetailPage(props: any) {
                             </Link>
                         )}
                         {prospect.outcome && (
-                            <Link href="?edit=3" scroll={false} className="hover:text-primary transition-colors hover:underline capitalize" title="Click to edit Outcome">
+                            <Link href="?edit=3" scroll={false} className="hover:text-foreground transition-colors hover:underline capitalize" title="Click to edit Outcome">
                                 · Outcome: {prospect.outcome.replace('_', ' ')}
                             </Link>
                         )}

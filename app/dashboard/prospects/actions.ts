@@ -31,17 +31,21 @@ export async function createProspect(formData: FormData) {
 
 // ─── Update Fields (Stage Generic) ──────────────────────────────────────────────
 
-export async function updateProspectField(prospectId: string, data: any) {
+export async function updateProspectField(id: string, data: any) {
     const session = await auth();
     if (!session?.user) throw new Error("Not authorized");
 
     await prisma.prospect.update({
-        where: { id: prospectId },
+        where: { id },
         data
     });
-    revalidatePath(`/dashboard/prospects/${prospectId}`);
+
+    revalidatePath(`/dashboard/prospects/${id}`);
     revalidatePath("/dashboard/prospects");
     revalidatePath("/dashboard");
+
+    // Force Next.js to navigate to the clean URL, stripping any ?edit= state
+    redirect(`/dashboard/prospects/${id}`);
 }
 
 const OFFSET_FU1_DAYS = 4;
@@ -67,6 +71,8 @@ export async function setFirstContact(formData: FormData) {
         contactChannel,
         followUp1Date
     });
+
+    redirect(`/dashboard/prospects/${prospectId}`);
 }
 
 export async function setFollowUpDate(formData: FormData) {

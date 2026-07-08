@@ -65,11 +65,20 @@ This file combines the planned development roadmap and the reactive work log (fi
 - [ ] Add `reportUrl` (String?) to `Prospect` schema and a Report section to the metadata card.
 - [ ] Enable clicking on historical timeline events (First Contact, Replied, Outcome) to revert the prospect pipeline back to that exact stage.
 
+### 10.0 Dashboard Global Views & Management (generated against SDD v3.0)
+- [ ] Scaffold generic side-bar navigation structure (Payments, Reports, Proof Points, Settings) with dummy route pages.
+- [ ] Implement `Payments` tab with dummy cross-prospect data: table view showing invoices (filterable by invoiced/paid) and running total cards by currency.
+- [ ] Implement `Reports` tab displaying dummy entries (client, date generated, mock PDF link).
+- [ ] Implement `Proof Points` tab showing dummy case-study components (client type, problem solved, result).
+- [ ] Implement `Settings` tab providing a basic analytics dashboard chart UI and mock setting toggles for team management and workflow offsets.
+
 ---
 ## Reactive Log
 <!-- @intake manages this section -->
 
 ## Recent Activity Index
+2026-07-09 — 10.0 Dashboard Global Views & Management — added
+2026-07-08 — 9.0 Prospect Pipeline & UI Enhancements — added
 2026-07-08 — 8.0 Stage 2 Meeting Section Details — complete
 2026-07-08 — 7.0 Follow-up Auto-Scheduling & Auto-Dead Logic — added
 2026-07-08 — 6.0 Engagement Tracker Data Model & UI Overhaul — added

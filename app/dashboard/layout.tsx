@@ -1,6 +1,6 @@
 import { auth } from "@/auth";
 import Link from "next/link";
-import { LogOut, Home, Users, Settings } from "lucide-react";
+import { LogOut, Home, Users, Settings, CreditCard, FileText, Bookmark } from "lucide-react";
 
 export default async function DashboardLayout({
     children,
@@ -32,6 +32,34 @@ export default async function DashboardLayout({
                         >
                             <Users className="h-4 w-4" />
                             Prospects
+                        </Link>
+                        <Link
+                            href="/dashboard/payments"
+                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                        >
+                            <CreditCard className="h-4 w-4" />
+                            Payments
+                        </Link>
+                        <Link
+                            href="/dashboard/reports"
+                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                        >
+                            <FileText className="h-4 w-4" />
+                            Reports
+                        </Link>
+                        <Link
+                            href="/dashboard/proof-points"
+                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                        >
+                            <Bookmark className="h-4 w-4" />
+                            Proof Points
+                        </Link>
+                        <Link
+                            href="/dashboard/settings"
+                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                        >
+                            <Settings className="h-4 w-4" />
+                            Settings
                         </Link>
                     </nav>
                 </div>
