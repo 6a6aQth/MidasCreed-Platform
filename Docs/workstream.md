@@ -17,10 +17,10 @@ This file combines the planned development roadmap and the reactive work log (fi
 - [x] Run initial generation and setup database migrations.
 
 ### 3.0 Internal Dashboard: Authentication Implementation (generated against SDD v1.0)
-- [ ] Install `next-auth` and set up the Credentials provider block.
-- [ ] Read 'Michaels' and 'Conrad' credentials from `.env.local` strictly, avoiding plain text. 
-- [ ] Create the `/login` Next.js route with a simple username and password entry form.
-- [ ] Create middleware to protect all internal dashboard routes and inject the current user identity (`assignedTo`) into the session.
+- [x] Install `next-auth` and set up the Credentials provider block.
+- [x] Read 'Michaels' and 'Conrad' credentials from `.env.local` strictly, avoiding plain text. 
+- [x] Create the `/login` Next.js route with a simple username and password entry form.
+- [x] Create middleware to protect all internal dashboard routes and inject the current user identity (`assignedTo`) into the session.
 
 ### 4.0 Internal Dashboard: User Interfaces & Layout (generated against SDD v1.0)
 - [ ] Build the main Dashboard (home) view with headline metrics (Total Engagements, Leads Converted, Payments Done, MWK/USD Revenue breakdown).
