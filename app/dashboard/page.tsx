@@ -10,9 +10,18 @@ export default async function DashboardPage() {
 
     return (
         <div className="flex flex-col gap-6">
-            <div>
-                <h1 className="text-3xl font-bold tracking-tight">Dashboard Overview</h1>
-                <p className="text-muted-foreground">Welcome to the MidasCreed pipeline dashboard.</p>
+            <div className="flex items-start justify-between">
+                <div>
+                    <h1 className="text-3xl font-bold tracking-tight">Dashboard Overview</h1>
+                    <p className="text-muted-foreground">Welcome to the MidasCreed pipeline dashboard.</p>
+                </div>
+                <a
+                    href="/dashboard/api/export"
+                    download
+                    className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+                >
+                    Export to Excel
+                </a>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">

@@ -1,9 +1,7 @@
 import { auth } from "@/auth";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { Plus } from "lucide-react";
-
-const prisma = new PrismaClient();
 
 export default async function ProspectsPage(props: {
     searchParams: Promise<{ tier?: string, status?: string, mineOnly?: string }>

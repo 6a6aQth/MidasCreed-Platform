@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Linkedin } from "lucide-react"
 
 // Custom X (Twitter) Icon
@@ -9,6 +12,12 @@ const XIcon = ({ className }: { className?: string }) => (
 )
 
 export function Footer() {
+  const pathname = usePathname()
+
+  if (pathname.startsWith("/dashboard") || pathname.startsWith("/login")) {
+    return null;
+  }
+
   return (
     <footer className="border-t relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-blue-800/40" />
