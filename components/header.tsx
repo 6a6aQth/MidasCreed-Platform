@@ -4,6 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
+import { usePathname } from "next/navigation"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -71,6 +72,12 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const pathname = usePathname()
+
+  // Hide header on dashboard and login routes
+  if (pathname.startsWith("/dashboard") || pathname.startsWith("/login")) {
+    return null;
+  }
 
   useEffect(() => {
     const handleScroll = () => {

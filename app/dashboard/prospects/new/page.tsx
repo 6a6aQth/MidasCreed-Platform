@@ -51,7 +51,48 @@ export default function NewProspectPage() {
                         </div>
                         <div className="grid gap-2">
                             <label htmlFor="country" className="text-sm font-medium">Country</label>
-                            <input id="country" name="country" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" />
+                            <select id="country" name="country" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                                <option value="">— Select country —</option>
+                                <option value="Malawi">🇲🇼 Malawi</option>
+                                <optgroup label="Africa">
+                                    <option value="Angola">Angola</option>
+                                    <option value="Botswana">Botswana</option>
+                                    <option value="Cameroon">Cameroon</option>
+                                    <option value="Côte d'Ivoire">Côte d&apos;Ivoire</option>
+                                    <option value="DR Congo">DR Congo</option>
+                                    <option value="Egypt">Egypt</option>
+                                    <option value="Ethiopia">Ethiopia</option>
+                                    <option value="Ghana">Ghana</option>
+                                    <option value="Kenya">Kenya</option>
+                                    <option value="Mozambique">Mozambique</option>
+                                    <option value="Namibia">Namibia</option>
+                                    <option value="Nigeria">Nigeria</option>
+                                    <option value="Rwanda">Rwanda</option>
+                                    <option value="Senegal">Senegal</option>
+                                    <option value="South Africa">South Africa</option>
+                                    <option value="Tanzania">Tanzania</option>
+                                    <option value="Uganda">Uganda</option>
+                                    <option value="Zambia">Zambia</option>
+                                    <option value="Zimbabwe">Zimbabwe</option>
+                                </optgroup>
+                                <optgroup label="Rest of World">
+                                    <option value="Australia">Australia</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="China">China</option>
+                                    <option value="France">France</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="India">India</option>
+                                    <option value="Japan">Japan</option>
+                                    <option value="Netherlands">Netherlands</option>
+                                    <option value="Singapore">Singapore</option>
+                                    <option value="Sweden">Sweden</option>
+                                    <option value="Switzerland">Switzerland</option>
+                                    <option value="United Arab Emirates">United Arab Emirates</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="United States">United States</option>
+                                    <option value="Other">Other</option>
+                                </optgroup>
+                            </select>
                         </div>
                     </div>
 
