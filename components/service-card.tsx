@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import { Brain, Glasses, Boxes, Globe } from "lucide-react"
+import { Lightbulb, Rocket, Cpu, Server } from "lucide-react"
 import { ShineBorder } from "@/components/ui/shine-border"
 
 interface ServiceCardProps {
@@ -14,10 +14,10 @@ interface ServiceCardProps {
 }
 
 const icons = {
-  Brain,
-  Glasses,
-  Boxes,
-  Globe,
+  Lightbulb,
+  Rocket,
+  Cpu,
+  Server,
 }
 
 export function ServiceCard({ title, description, href, icon: Icon, className }: ServiceCardProps) {

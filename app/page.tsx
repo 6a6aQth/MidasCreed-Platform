@@ -8,32 +8,32 @@ import RadialOrbitalTimeline from "@/components/radial-orbital-timeline"
 
 const services = [
   {
-    title: "Artificial Intelligence",
+    title: "Awareness",
     description:
-      "We research, design and deploy scalable AI systems studying how AI can be adapted, localized, and scaled for Malawi and the broader African continent.",
-    href: "/services/ai",
-    icon: "Brain",
+      "We help you understand how AI Agents can streamline operations and identify high-leverage opportunities in your workflow.",
+    href: "/services/awareness",
+    icon: "Lightbulb",
   },
   {
-    title: "AR Experience",
+    title: "Enablement",
     description:
-      "Create immersive augmented reality experiences that transform how users interact with your products and services in revolutionary ways.",
-    href: "/services/ar",
-    icon: "Glasses",
+      "We train your team and set up the foundational systems needed to deploy intelligent agents safely and effectively.",
+    href: "/services/enablement",
+    icon: "Rocket",
   },
   {
-    title: "Web3 Exploration",
+    title: "Integration",
     description:
-      "step into the future of the internet with decentralized technologies tailored for African communities and economies.",
-    href: "/services/web3",
-    icon: "Boxes",
+      "We deploy custom AI Agents directly into your existing business channels and customer touchpoints with zero friction.",
+    href: "/services/integration",
+    icon: "Cpu",
   },
   {
-    title: "Business Automation",
+    title: "Infrastructure",
     description:
-      "We deliver beautifully designed, functional systems that automate workflows, improve user experience, and elevate small business potential.",
-    href: "/services/web-design",
-    icon: "Globe",
+      "We manage, monitor, and scale your AI operations, ensuring resilience and consistent ROI for your business.",
+    href: "/services/infrastructure",
+    icon: "Server",
   },
 ]
 
@@ -47,10 +47,10 @@ export default function Home() {
         {/* Hero Content */}
         <div className="container relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center gap-8 text-center text-white">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-            Innovating Africa&apos;s Future with <span className="text-blue-400">Emerging Technologies</span>
+            Deploy <span className="text-blue-400">AI Agents</span> to Automate Operations
           </h1>
           <p className="max-w-[700px] text-lg text-gray-200 sm:text-xl">
-           Redefining the future of business with digital solutions crafted for growth, inclusion, and sustainability.
+            We build, integrate, and manage autonomous systems that handle your operations so you can focus on growth. No hype, just execution.
           </p>
           <div className="flex flex-col gap-4 min-[400px]:flex-row">
             <Button asChild size="lg" className="blue-gradient button-glow rounded-full text-primary-foreground">
@@ -72,8 +72,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
         <div className="container relative">
           <div className="mx-auto mb-12 max-w-[800px] text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">What We Do</h2>
-            <p className="mt-4 text-gray-400">Comprehensive solutions powered by research, innovation & emerging technologies.</p>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">Enterprise AI Adoption</h2>
+            <p className="mt-4 text-gray-400">A structured framework to take you from awareness to full infrastructure deployment.</p>
           </div>
           <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 max-w-6xl mx-auto">
             {services.map((service) => (
@@ -91,8 +91,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
         <div className="container relative">
           <div className="mx-auto mb-12 max-w-[800px] text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">How We Work</h2>
-            <p className="mt-4 text-gray-400">Our systematic approach to delivering innovative solutions</p>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">How We Execute</h2>
+            <p className="mt-4 text-gray-400">No guesswork. A structured pipeline to deployment.</p>
           </div>
           <div className="min-h-[600px]">
             <RadialOrbitalTimeline
