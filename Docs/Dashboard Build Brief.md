@@ -1,4 +1,4 @@
-# MidasCreed Pipeline Dashboard — Build Brief
+ MidasCreed Pipeline Dashboard — Build Brief
 
 Hand this to your coding AI as-is. It specifies a small internal tool, not a public product — optimize for "working for two people this week," not scalability.
 

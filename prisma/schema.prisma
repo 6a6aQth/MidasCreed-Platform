@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Prospect {
+  id             String   @id @default(cuid())
+  name           String
+  tier           String   // "malawi_simple" | "african_medium" | "international_high_end"
+  sector         String?
+  country        String?
+  source         String   // "sourced" | "referral" | "existing_client" | "cold" | "inbound"
+  assignedTo     String   // "michael" | "conrad"
+  status         String   @default("sourced")
+  // sourced -> contacted -> replied -> meeting_booked -> audit_done -> agent_built -> won -> dead
+  contactChannel String?  // "whatsapp" | "email" | "linkedin" | "in_person"
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  lastContactAt  DateTime? // updated every time a new Interaction is logged
+
+  interactions   Interaction[]
+  followUps      FollowUp[]
+  agents         AgentBuild[]
+  deals          Deal[]
+  reports        EngagementReport[]
+}
+
+model Interaction {
+  id           String   @id @default(cuid())
+  prospectId   String
+  prospect     Prospect @relation(fields: [prospectId], references: [id])
+  type         String   // "email" | "whatsapp" | "linkedin" | "call" | "meeting"
+  direction    String   // "outbound" | "inbound"
+  summary      String   // brief, not the full transcript
+  occurredAt   DateTime @default(now())
+  loggedBy     String   // "michael" | "conrad"
+}
+
+model FollowUp {
+  id          String   @id @default(cuid())
+  prospectId  String
+  prospect    Prospect @relation(fields: [prospectId], references: [id])
+  dueDate     DateTime
+  type        String   // "follow_up_1" | "follow_up_2" | "breakup" | "custom"
+  completed   Boolean  @default(false)
+  completedAt DateTime?
+}
+
+model AgentBuild {
+  id          String   @id @default(cuid())
+  prospectId  String
+  prospect    Prospect @relation(fields: [prospectId], references: [id])
+  agentName   String
+  description String
+  status      String   // "proposed" | "building" | "live" | "maintained"
+  liveDate    DateTime?
+}
+
+model Deal {
+  id           String   @id @default(cuid())
+  prospectId   String
+  prospect     Prospect @relation(fields: [prospectId], references: [id])
+  serviceType  String   // "audit" | "managed_service" | "one_time_build"
+  amount       Decimal
+  currency     String   // "MWK" | "USD"
+  status       String   // "proposed" | "invoiced" | "paid"
+  date         DateTime @default(now())
+}
+
+model EngagementReport {
+  id          String   @id @default(cuid())
+  prospectId  String
+  prospect    Prospect @relation(fields: [prospectId], references: [id])
+  summary     String   // short narrative, mirrors the PDF report content
+  pdfUrl      String?
+  generatedAt DateTime @default(now())
+}
