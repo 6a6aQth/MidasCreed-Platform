@@ -19,10 +19,10 @@ const logos = [
     name: "Nirvana Tours & Travel",
   },
   {
-    src: "/images/partners/rahul-tech-logo.png",
-    alt: "Rahul Tech",
+    src: "/images/partners/sunnymoney-logo.png",
+    alt: "Sunny Money",
     href: "#",
-    name: "Rahul Tech",
+    name: "Sunny Money",
   },
   {
     src: "/images/partners/lauryn-logo.png",
@@ -31,16 +31,28 @@ const logos = [
     name: "Lauryn Luxe Beauty Studio",
   },
   {
-    src: "/images/partners/ai-innovation-hub-logo.png",
-    alt: "AI & Innovation Hub",
+    src: "/images/partners/greenhouse-logo.png",
+    alt: "Greenhouse",
     href: "#",
-    name: "AI & Innovation Hub",
+    name: "Greenhouse",
   },
   {
     src: "/images/partners/thanthwe-logo.png",
     alt: "Thanthwe Farms",
     href: "#",
     name: "Thanthwe Farms",
+  },
+  {
+    src: "/images/partners/chiyembekezo-logo.png",
+    alt: "Chiyembekezo Foundation",
+    href: "#",
+    name: "Chiyembekezo Foundation",
+  },
+  {
+    src: "/images/partners/havilah-logo.png",
+    alt: "Havilah",
+    href: "#",
+    name: "Havilah",
   },
 ]
 

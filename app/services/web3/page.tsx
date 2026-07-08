@@ -79,7 +79,7 @@ export default function Web3IntegrationPage() {
                     A platform that acts as a gateway to blockchain-powered property investment. Access institutional-grade Build-to-Rent assets through tokenized ownership with transparent yields and instant liquidity.
                   </p>
                   <Button variant="outline" size="sm" asChild>
-                    <Link href="#" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://aunamex.midascreed.com/" target="_blank" rel="noopener noreferrer">
                       Learn More
                     </Link>
                   </Button>

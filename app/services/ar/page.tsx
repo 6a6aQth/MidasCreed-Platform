@@ -67,30 +67,47 @@ export default function ARExperiencePage() {
                 </CardContent>
               </Card>
 
-              {[2, 3].map((project) => (
-                <Card key={project} className="border-beam overflow-hidden">
-                  <CardHeader className="p-0">
-                    <div className="relative h-48">
-                      <Image
-                        src={`/placeholder.svg?height=200&width=400&text=AR+Project+${project}`}
-                        alt={`AR Project ${project}`}
-                        fill
-                        className="object-cover"
-                      />
+              <Card className="border-beam overflow-hidden">
+                <CardHeader className="p-0">
+                  <div className="relative h-48 bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center">
+                    <div className="text-center text-white">
+                      <div className="text-4xl mb-2">🚀</div>
+                      <div className="text-lg font-semibold">Coming Soon</div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <CardTitle className="mb-2">AR Project {project}</CardTitle>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                      We created an AR-powered virtual try-on solution for a fashion retailer, resulting in a 40% increase
-                      in online sales and reduced return rates.
-                    </p>
-                    <Button variant="outline" size="sm">
-                      Learn More
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <CardTitle className="mb-2">AR Innovation in Progress</CardTitle>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                    We're currently developing cutting-edge AR solutions that will revolutionize how businesses interact with their customers.
+                  </p>
+                  <Button variant="outline" size="sm" disabled className="opacity-50 cursor-not-allowed">
+                    Coming Soon
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-beam overflow-hidden">
+                <CardHeader className="p-0">
+                  <div className="relative h-48 bg-gradient-to-br from-purple-600 to-pink-700 flex items-center justify-center">
+                    <div className="text-center text-white">
+                      <div className="text-4xl mb-2">✨</div>
+                      <div className="text-lg font-semibold">Coming Soon</div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <CardTitle className="mb-2">AR Innovation in Progress</CardTitle>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                    We're currently developing cutting-edge AR solutions that will revolutionize how businesses interact with their customers.
+                  </p>
+                  <Button variant="outline" size="sm" disabled className="opacity-50 cursor-not-allowed">
+                    Coming Soon
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>

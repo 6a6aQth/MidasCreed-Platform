@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 const services = [
   {
-    title: "Custom AI & Web Development",
+    title: "Artificial Intelligence",
     description:
       "Harness the power of artificial intelligence and modern web technologies to create intelligent, responsive, and user-friendly digital solutions tailored to your specific business needs.",
     icon: Brain,
@@ -16,7 +16,7 @@ const services = [
     gradient: "from-blue-500 to-indigo-500",
   },
   {
-    title: "Blockchain & Web3 Consulting",
+    title: "Blockchain & Web3",
     description:
       "Step into the future of decentralized technology with our Web3 expertise. We help businesses implement blockchain solutions, smart contracts, and decentralized applications.",
     icon: Boxes,
@@ -24,7 +24,7 @@ const services = [
     gradient: "from-indigo-500 to-blue-700",
   },
   {
-    title: "AR/VR Solutions",
+    title: "Augmented and Virtual Reality",
     description:
       "Transform customer experiences with immersive augmented and virtual reality applications that bring your products and services to life in revolutionary ways.",
     icon: Glasses,

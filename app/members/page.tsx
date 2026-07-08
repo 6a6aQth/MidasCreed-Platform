@@ -19,17 +19,17 @@ const teamMembers = [
   },
   {
     name: "Conrad Zidana",
-    role: "Chief Technology Officer",
-    bio: "Conrad brings cutting-edge AI and blockchain expertise to MidasCreed, driving our technological advancements and innovation initiatives.",
+    role: "Co-founder & Lead Software Engineer",
+    bio: "Conrad oversees the development of our software products, ensuring they are robust, scalable, and user-friendly.",
     image: "/images/Conrad-Zidana.png",
     linkedin: "https://www.linkedin.com/in/conrad-zidana-94554b21b",
   },
   {
-    name: "Takondwa Namalima",
-    role: "Strategic Partnerships & Grants Lead",
-    bio: "Takondwa spearheads MidasCreed's global impact strategy, forging high-value partnerships and securing transformative grants to power our SDG and innovation-driven initiatives.",
-    image: "/Takondwa.png",
-    linkedin: "https://www.linkedin.com/in/takondwa-namalima-8a0159252/",
+    name: "Zaithwa Chitsanthi",
+    role: "Project Administrator",
+    bio: "Zaithwa Contributes to project coordination, documentation, and stakeholder liaison to support effective delivery.",
+    image: "/images/zaithwa-profile.png",
+    linkedin: " https://www.linkedin.com/in/zaithwa-chitsanthi-a14332297",
   },
   {
     name: "Comfort Kaitane",
@@ -86,7 +86,7 @@ export default function MembersPage() {
                           src={member.image || "/placeholder.svg"}
                           alt={member.name}
                           fill
-                          className={`object-cover object-top${member.name === "Takondwa Namalima" ? " !object-center scale-110" : ""}`}
+                          className="object-cover object-top"
                           sizes="160px"
                         />
                       </div>

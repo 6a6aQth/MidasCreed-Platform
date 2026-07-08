@@ -163,7 +163,7 @@ export function Header() {
             </NavigationMenuList>
             <NavigationMenuViewport />
           </NavigationMenu>
-          <Link href="https://v0-aurum-website-design.vercel.app/" target="_blank" rel="noopener noreferrer" className={cn(navigationMenuTriggerStyle(), "glow-effect")}>Aurum AI</Link>
+          <Link href="https://aurum.midascreed.com" target="_blank" rel="noopener noreferrer" className={cn(navigationMenuTriggerStyle(), "glow-effect")}>Aurum AI</Link>
         </div>
         <div className="md:hidden flex items-center">
           <Drawer>
@@ -214,7 +214,7 @@ export function Header() {
               </nav>
               <DrawerFooter>
                 <DrawerClose asChild>
-                  <Link href="https://v0-aurum-website-design.vercel.app/" target="_blank" rel="noopener noreferrer" className="w-full block text-center bg-blue-600 text-white font-bold py-3 rounded-md hover:bg-blue-700 transition">Aurum AI</Link>
+                  <Link href="https://aurum.midascreed.com/" target="_blank" rel="noopener noreferrer" className="w-full block text-center bg-blue-600 text-white font-bold py-3 rounded-md hover:bg-blue-700 transition">Aurum AI</Link>
                 </DrawerClose>
               </DrawerFooter>
             </DrawerContent>

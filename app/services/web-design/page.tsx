@@ -110,7 +110,7 @@ export default function WebDesignPage() {
                     A modern website that has improved Nirvana's online presence and client engagement.
                   </p>
                   <Button variant="outline" size="sm" asChild>
-                    <Link href="https://nirvanttravels.com/" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://nirvanattravels.com/" target="_blank" rel="noopener noreferrer">
                       Learn More
                     </Link>
                   </Button>

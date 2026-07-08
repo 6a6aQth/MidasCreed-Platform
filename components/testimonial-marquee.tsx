@@ -6,44 +6,45 @@ import Image from "next/image"
 const testimonials = [
   {
     quote:
-      "MidasCreed has transformed our business with their innovative solutions. Their team is professional and delivers exceptional results.",
-    author: "Sarah Johnson",
-    company: "TechStart Africa",
+      "MidasCreed built a seamless booking and payment system that completely streamlined how we manage clients and services. The platform is intuitive, fast, and beautifully executed.",
+    author: "Lauryn Lambat",
+    company: "Lauryn Luxe Beauty Studio",
+    img: "https://avatar.vercel.sh/lauryn",
+  },
+  {
+    quote:
+      "The GreenHouse Solutions platform developed by MidasCreed has made it easy for customers to explore our offerings, request quotations, and generate invoices efficiently. Their work was both strategic and reliable.",
+    author: "Dziko Chatata",
+    company: "GreenHouse Solutions",
+    img: "https://avatar.vercel.sh/dziko",
+  },
+  {
+    quote:
+      "MidasCreed successfully rebuilt our website with a modern, professional feel that reflects our brand. The new platform has improved our online presence and client engagement significantly.",
+    author: "Sarah Uwayo",
+    company: "Nirvana Tours & Travel",
     img: "https://avatar.vercel.sh/sarah",
   },
   {
     quote:
-      "The AR solutions provided by MidasCreed have revolutionized how we interact with our customers. Truly cutting-edge technology.",
-    author: "Michael Chen",
-    company: "Digital Innovations",
-    img: "https://avatar.vercel.sh/michael",
+      "They handled a complex data migration project for us with precision and care. The transition was smooth, secure, and completed with minimal disruption to our operations.",
+    author: "Lincoln Bailey",
+    company: "Mchenga Core Mine",
+    img: "https://avatar.vercel.sh/lincoln",
   },
   {
     quote:
-      "Working with MidasCreed on our Web3 integration was seamless. Their expertise in blockchain technology is outstanding.",
-    author: "David Mwangi",
-    company: "Future Finance",
-    img: "https://avatar.vercel.sh/david",
+      "MidasCreed delivered a robust application and donation platform that supports our mission effectively. The system is easy to manage and has improved how we engage with donors and applicants.",
+    author: "Tanya",
+    company: "Chiyembekezo Scholar Foundation",
+    img: "https://avatar.vercel.sh/tanya",
   },
   {
     quote:
-      "The web design team at MidasCreed created a beautiful, functional website that perfectly represents our brand.",
-    author: "Lisa Banda",
-    company: "Creative Solutions",
-    img: "https://avatar.vercel.sh/lisa",
-  },
-  {
-    quote:
-      "Their AI solutions have significantly improved our operational efficiency. We couldn't be happier with the results.",
-    author: "James Phiri",
-    company: "Smart Systems",
-    img: "https://avatar.vercel.sh/james",
-  },
-  {
-    quote: "The team at MidasCreed went above and beyond to deliver a product that exceeded our expectations.",
-    author: "Grace Mutale",
-    company: "Innovate Malawi",
-    img: "https://avatar.vercel.sh/grace",
+      "Their email setup and management services brought structure and professionalism to our communications. Everything was configured securely and works exactly as we needed.",
+    author: "Stamford Nsona",
+    company: "Kay Consult",
+    img: "https://avatar.vercel.sh/stamford",
   },
 ]
 
