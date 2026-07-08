@@ -12,9 +12,9 @@ This file combines the planned development roadmap and the reactive work log (fi
 - [x] Enforce the direct, founder-led voice constraint across all visible static text.
 
 ### 2.0 Internal Dashboard: Database & Prisma Setup (generated against SDD v1.0)
-- [ ] Install Prisma and strictly configure connection to Neon (serverless Postgres).
-- [ ] Define the Prisma Schema to cover Prospect, Interaction, FollowUp, AgentBuild, Deal, and EngagementReport models based on the schema definition.
-- [ ] Run initial generation and setup database migrations.
+- [x] Install Prisma and strictly configure connection to Neon (serverless Postgres).
+- [x] Define the Prisma Schema to cover Prospect, Interaction, FollowUp, AgentBuild, Deal, and EngagementReport models based on the schema definition.
+- [x] Run initial generation and setup database migrations.
 
 ### 3.0 Internal Dashboard: Authentication Implementation (generated against SDD v1.0)
 - [ ] Install `next-auth` and set up the Credentials provider block.
