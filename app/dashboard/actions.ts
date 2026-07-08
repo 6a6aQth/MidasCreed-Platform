@@ -5,36 +5,35 @@ export async function getDashboardMetrics() {
     const session = await auth();
     const assignedTo = session?.user?.assignedTo;
 
-    const totalEngagements = await prisma.interaction.count();
+    const totalEngagements = await prisma.prospect.count();
     const leadsConverted = await prisma.prospect.count({
         where: {
-            status: "won"
+            outcome: "won"
         }
     });
 
-    const paidDeals = await prisma.deal.findMany({
-        where: { status: "paid" }
+    const paidPayments = await prisma.payment.findMany({
+        where: { paid: true }
     });
 
-    const paymentsDone = paidDeals.length;
-    const revenueUsd = paidDeals
+    const paymentsDone = paidPayments.length;
+    const revenueUsd = paidPayments
         .filter(d => d.currency === "USD")
         .reduce((sum, d) => sum + Number(d.amount), 0);
 
-    const eightDaysAgo = new Date();
-    eightDaysAgo.setDate(eightDaysAgo.getDate() - 8);
-
-    const needsFollowUp = await prisma.prospect.findMany({
+    const candidates = await prisma.prospect.findMany({
         where: {
-            OR: [
-                { lastContactAt: { lt: eightDaysAgo } },
-                { lastContactAt: null, createdAt: { lt: eightDaysAgo } }
-            ],
-            status: { notIn: ["won", "dead"] }
-        },
-        orderBy: {
-            lastContactAt: 'asc'
+            replied: false,
+            outcome: null,
         }
+    });
+
+    const now = new Date();
+    const needsFollowUp = candidates.filter(p => {
+        if (!p.followUp1Done && p.followUp1Date && p.followUp1Date < now) return true;
+        if (p.followUp1Done && !p.followUp2Done && p.followUp2Date && p.followUp2Date < now) return true;
+        if (p.followUp2Done && !p.breakupDone && p.breakupDate && p.breakupDate < now) return true;
+        return false;
     });
 
     return {

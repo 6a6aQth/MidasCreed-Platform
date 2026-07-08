@@ -1,7 +1,12 @@
 # MidasCreed System Design Document (SDD)
 Last Updated: 2026-07-08
-Version: v1.0 (Base)
-Brief Project Description: Corporate website for MidasCreed conveying an innovative image (AI, AR, Web3, Business Automation) using cutting-edge web technologies, high-fidelity 3D animations, and a contact form integration.
+Version: v2.0
+Brief Project Description: Corporate website for MidasCreed conveying an innovative image (AI, AR, Web3, Business Automation) using cutting-edge web technologies, high-fidelity 3D animations, a contact form integration, and an Internal Engagement Tracker Dashboard.
+
+**Changelog:**
+- **v2.0 (2026-07-08):** Introduced Internal Engagement Tracker (Prospect and Payment data models) with progressive disclosure UI, superseding previous pipeline DB approaches.
+- **v1.0 (Base):** Initial M.A.S.T.E.R. documentation.
+
 Framework: M.A.S.T.E.R. (Model → Architecture → Scale → Tradeoffs → Execution → Resilience)
 
 ### M — MODEL THE SYSTEM (Requirements & Constraints)
@@ -9,12 +14,13 @@ Framework: M.A.S.T.E.R. (Model → Architecture → Scale → Tradeoffs → Exec
    - Present MidasCreed's services (AI, AR, Web3, Business Automation).
    - Display immersive 3D background elements and highly polished UI components (timelines, marquees).
    - Allow users to submit contact inquiries which automatically send formatted emails to the MidasCreed team and an auto-reply receipt to the user.
+   - **Internal Dashboard:** Track prospect engagement with progressive disclosure UI across 4 stages (Engaging, Traction, Resolution, Payment). Manage strict follow-up sequences (auto-calculated 4/7/11-day offsets) and auto-close unresponsive leads (Dead). Log financial outcomes (one-time and retainer payments).
 2. **Non-Functional Requirements**
    - High availability (static edge delivery).
    - Low latency (fast initial load times utilizing Next.js Server Components and SSG).
    - High visual fidelity (WebGL/Three.js rendering performance).
 3. **Constraints**
-   - Currently, no relational database is provisioned.
+   - Relational database and ORM are provisioned (Serverless Postgres via Neon, Prisma ORM).
    - Requires efficient browser rendering for the WebGL/React Three Fiber scenes across desktop and mobile devices.
 4. **Success Metrics**
    - Smooth 60fps rendering for 3D elements on modern devices.
@@ -26,10 +32,12 @@ Framework: M.A.S.T.E.R. (Model → Architecture → Scale → Tradeoffs → Exec
    - **Styling:** Tailwind CSS, Radix UI (shadcn/ui), Framer Motion.
    - **3D Graphics:** React Three Fiber, Three.js, React Drei.
 2. **Backend (Server Actions)**
-   - **API / Logic:** Next.js Server Actions (`app/actions/contact.ts`).
+   - **API / Logic:** Next.js Server Actions (`app/actions/contact.ts` and internal dashboard API actions).
    - **Email Service:** Integration with the **Resend** API.
+   - **Database ORM:** Prisma Client.
 3. **Data Model / Database Schema**
-   - *No database is currently configured.* The application operates statelessly.
+   - **Prospect Model:** Core entity for tracking client interactions, replacing older flat-status workflows. It includes tier, source, fit/signal scores, engagement sequence tracking (first contact, follow-ups 1 & 2, breakup, meeting (with detailed time, type, and location fields)), and final outcome status.
+   - **Payment Model:** One-to-many relationship with Prospect. Records individual payments (one-time vs monthly retainer, amount, currency, invoiced/paid toggles).
 4. **Anomalies / Unexpected Components**
    - The project includes `expo` and `react-native` dependencies which are unconventional for a pure Next.js web application. These might be exploratory, an artifact of code migration, or intended for a future cross-platform architectural approach (e.g., using Solito). For now, they can be safely ignored but should be removed in the future if a mobile app is not actively being built in this repository.
 

@@ -95,6 +95,16 @@ export default function NewProspectPage() {
                             </select>
                         </div>
                     </div>
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="grid gap-2">
+                            <label htmlFor="fitScore" className="text-sm font-medium">Fit Score (0-5)</label>
+                            <input type="number" id="fitScore" name="fitScore" min="0" max="5" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" />
+                        </div>
+                        <div className="grid gap-2">
+                            <label htmlFor="signalScore" className="text-sm font-medium">Signal Score (0-5)</label>
+                            <input type="number" id="signalScore" name="signalScore" min="0" max="5" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" />
+                        </div>
+                    </div>
 
                     <div className="mt-4 flex justify-end">
                         <button type="submit" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">

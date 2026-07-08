@@ -3,22 +3,32 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 
+function getStage(p: any) {
+    if (p.outcome === "dead_lead") return "Dead";
+    if (p.outcome === "ai_audit" || p.outcome === "agent_work") return "Payment";
+    if (p.meetingDone) return "Resolution";
+    if (p.replied) return "Traction";
+    return "Engaging";
+}
+
 export default async function ProspectsPage(props: {
-    searchParams: Promise<{ tier?: string, status?: string, mineOnly?: string }>
+    searchParams: Promise<{ tier?: string, stage?: string, mineOnly?: string }>
 }) {
     const searchParams = await props.searchParams;
     const session = await auth();
 
-    // Built simple filtering
     const whereClause: any = {};
     if (searchParams.tier) whereClause.tier = searchParams.tier;
-    if (searchParams.status) whereClause.status = searchParams.status;
     if (searchParams.mineOnly === "true") whereClause.assignedTo = session?.user?.assignedTo;
 
-    const prospects = await prisma.prospect.findMany({
+    let prospects = await prisma.prospect.findMany({
         where: whereClause,
         orderBy: { updatedAt: 'desc' }
     });
+
+    if (searchParams.stage) {
+        prospects = prospects.filter(p => getStage(p).toLowerCase() === searchParams.stage?.toLowerCase());
+    }
 
     return (
         <div className="flex flex-col gap-6">
@@ -41,9 +51,9 @@ export default async function ProspectsPage(props: {
                         <thead className="text-xs uppercase bg-muted/50 border-b">
                             <tr>
                                 <th className="px-6 py-3 font-medium">Name</th>
+                                <th className="px-6 py-3 font-medium">Country</th>
                                 <th className="px-6 py-3 font-medium">Tier</th>
-                                <th className="px-6 py-3 font-medium">Status</th>
-                                <th className="px-6 py-3 font-medium">Assigned</th>
+                                <th className="px-6 py-3 font-medium">Stage</th>
                                 <th className="px-6 py-3 font-medium text-right">Actions</th>
                             </tr>
                         </thead>
@@ -51,9 +61,9 @@ export default async function ProspectsPage(props: {
                             {prospects.map((prospect) => (
                                 <tr key={prospect.id} className="border-b hover:bg-muted/50 transition-colors">
                                     <td className="px-6 py-4 font-medium">{prospect.name}</td>
-                                    <td className="px-6 py-4">{prospect.tier.replace('_', ' ')}</td>
-                                    <td className="px-6 py-4">{prospect.status.replace('_', ' ')}</td>
-                                    <td className="px-6 py-4 capitalize">{prospect.assignedTo}</td>
+                                    <td className="px-6 py-4">{prospect.country || "—"}</td>
+                                    <td className="px-6 py-4">{prospect.tier.replace(/_/g, ' ')}</td>
+                                    <td className="px-6 py-4">{getStage(prospect)}</td>
                                     <td className="px-6 py-4 text-right">
                                         <Link href={`/dashboard/prospects/${prospect.id}`} className="text-primary hover:underline">
                                             View
