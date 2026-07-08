@@ -5,13 +5,12 @@ import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
+// ─── Create Prospect ───────────────────────────────────────────────────────────
+
 export async function createProspect(formData: FormData) {
     const session = await auth();
     const assignedTo = session?.user?.assignedTo;
-
-    if (!assignedTo) {
-        throw new Error("Not authorized");
-    }
+    if (!assignedTo) throw new Error("Not authorized");
 
     const name = formData.get("name") as string;
     const tier = formData.get("tier") as string;
@@ -20,112 +19,33 @@ export async function createProspect(formData: FormData) {
     const country = formData.get("country") as string | null;
 
     const prospect = await prisma.prospect.create({
-        data: {
-            name,
-            tier,
-            source,
-            sector,
-            country,
-            assignedTo,
-            status: "sourced"
-        }
+        data: { name, tier, source, sector, country, assignedTo, status: "sourced" }
     });
 
     redirect(`/dashboard/prospects/${prospect.id}`);
 }
 
+// ─── Update Prospect (status + optional deal) ──────────────────────────────────
+
 export async function updateProspect(formData: FormData) {
     const session = await auth();
     const assignedTo = session?.user?.assignedTo;
-
-    if (!assignedTo) {
-        throw new Error("Not authorized");
-    }
+    if (!assignedTo) throw new Error("Not authorized");
 
     const id = formData.get("id") as string;
     const status = formData.get("status") as string;
-    const score = formData.get("score") as string;
-    const notes = formData.get("notes") as string;
-
-    // --- Meeting booked side-effect ---
-    const meetingBooked = formData.get("meeting_booked") === "on";
-    // --- Client paid side-effect ---
     const clientPaid = formData.get("client_paid") === "on";
     const dealAmount = formData.get("deal_amount") as string;
     const dealCurrency = formData.get("deal_currency") as string;
     const dealService = formData.get("deal_service") as string;
 
-    // Fetch existing data to compare
     const existing = await prisma.prospect.findUnique({
         where: { id },
-        include: {
-            interactions: { orderBy: { occurredAt: "desc" }, take: 1 },
-            followUps: true,
-            deals: { orderBy: { date: "desc" }, take: 1 },
-        },
+        select: { deals: { select: { status: true } } },
     });
 
-    if (!existing) throw new Error("Prospect not found");
-
-    let newLastContactAt: Date | undefined;
-
-    // 1. Notes → Interaction row + lastContactAt update
-    if (notes) {
-        await prisma.interaction.create({
-            data: {
-                prospectId: id,
-                type: "meeting",
-                direction: "outbound",
-                summary: `[Score: ${score || "N/A"}] ${notes}`,
-                loggedBy: assignedTo,
-            },
-        });
-        newLastContactAt = new Date();
-    }
-
-    // 2. Meeting booked side-effect: create Interaction + schedule follow-ups if not already done
-    if (meetingBooked && status === "meeting_booked") {
-        const hasMeetingInteraction = existing.interactions.some(
-            (i) => i.type === "meeting" && i.summary.startsWith("[meeting_booked]")
-        );
-        if (!hasMeetingInteraction) {
-            const now = new Date();
-            await prisma.interaction.create({
-                data: {
-                    prospectId: id,
-                    type: "meeting",
-                    direction: "outbound",
-                    summary: "[meeting_booked] Meeting automatically logged on status change.",
-                    loggedBy: assignedTo,
-                },
-            });
-            newLastContactAt = now;
-
-            // Auto-schedule follow-ups if none exist yet
-            const hasFollowUps = existing.followUps.some(
-                (f) => f.type === "follow_up_1" || f.type === "follow_up_2"
-            );
-            if (!hasFollowUps) {
-                const fu1Date = new Date(now);
-                fu1Date.setDate(fu1Date.getDate() + 4);
-                const fu2Date = new Date(now);
-                fu2Date.setDate(fu2Date.getDate() + 7);
-                const breakupDate = new Date(fu2Date);
-                breakupDate.setDate(breakupDate.getDate() + 4); // +4 from FU2 = +11 total
-
-                await prisma.followUp.createMany({
-                    data: [
-                        { prospectId: id, dueDate: fu1Date, type: "follow_up_1" },
-                        { prospectId: id, dueDate: fu2Date, type: "follow_up_2" },
-                        { prospectId: id, dueDate: breakupDate, type: "breakup" },
-                    ],
-                });
-            }
-        }
-    }
-
-    // 3. Client paid side-effect: create a Deal row (once)
-    if (clientPaid && dealAmount) {
+    // Create Deal row on first "client paid" tick
+    if (clientPaid && dealAmount && existing) {
         const hasPaidDeal = existing.deals.some((d) => d.status === "paid");
         if (!hasPaidDeal) {
             await prisma.deal.create({
@@ -140,16 +60,90 @@ export async function updateProspect(formData: FormData) {
         }
     }
 
-    // 4. Update prospect record
-    await prisma.prospect.update({
-        where: { id },
-        data: {
-            status,
-            ...(newLastContactAt && { lastContactAt: newLastContactAt }),
-        },
-    });
+    await prisma.prospect.update({ where: { id }, data: { status } });
 
     revalidatePath(`/dashboard/prospects/${id}`);
     revalidatePath("/dashboard/prospects");
     revalidatePath("/dashboard");
+}
+
+// ─── Add Interaction (engagement log entry) ────────────────────────────────────
+
+export async function addInteraction(formData: FormData) {
+    const session = await auth();
+    const assignedTo = session?.user?.assignedTo;
+    if (!assignedTo) throw new Error("Not authorized");
+
+    const prospectId = formData.get("prospectId") as string;
+    const type = formData.get("type") as string;
+    const direction = formData.get("direction") as string;
+    const summary = formData.get("summary") as string;
+    const fitScore = formData.get("fit_score") as string;
+    const signalScore = formData.get("signal_score") as string;
+
+    const scoreSuffix =
+        fitScore || signalScore
+            ? ` [Fit: ${fitScore || 0}/5, Signal: ${signalScore || 0}/5 → ${Number(fitScore || 0) + Number(signalScore || 0)}/10]`
+            : "";
+
+    await prisma.interaction.create({
+        data: {
+            prospectId,
+            type,
+            direction,
+            summary: summary + scoreSuffix,
+            loggedBy: assignedTo,
+        },
+    });
+
+    await prisma.prospect.update({
+        where: { id: prospectId },
+        data: { lastContactAt: new Date() },
+    });
+
+    revalidatePath(`/dashboard/prospects/${prospectId}`);
+}
+
+// ─── Mark Follow-up Done + progressive scheduling ──────────────────────────────
+
+export async function completeFollowUp(formData: FormData) {
+    const session = await auth();
+    if (!session?.user) throw new Error("Not authorized");
+
+    const followUpId = formData.get("followUpId") as string;
+
+    const fu = await prisma.followUp.update({
+        where: { id: followUpId },
+        data: { completed: true, completedAt: new Date() },
+    });
+
+    const now = new Date();
+
+    if (fu.type === "follow_up_1") {
+        const existingFu2 = await prisma.followUp.findFirst({
+            where: { prospectId: fu.prospectId, type: "follow_up_2" },
+        });
+        if (!existingFu2) {
+            const fu2Date = new Date(now);
+            fu2Date.setDate(fu2Date.getDate() + 4);
+            await prisma.followUp.create({
+                data: { prospectId: fu.prospectId, dueDate: fu2Date, type: "follow_up_2" },
+            });
+        }
+    }
+
+    if (fu.type === "follow_up_2") {
+        const existingBreakup = await prisma.followUp.findFirst({
+            where: { prospectId: fu.prospectId, type: "breakup" },
+        });
+        if (!existingBreakup) {
+            const breakupDate = new Date(now);
+            breakupDate.setDate(breakupDate.getDate() + 7);
+            await prisma.followUp.create({
+                data: { prospectId: fu.prospectId, dueDate: breakupDate, type: "breakup" },
+            });
+        }
+    }
+
+    revalidatePath(`/dashboard/prospects/${fu.prospectId}`);
 }
