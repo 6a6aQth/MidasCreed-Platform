@@ -1,10 +1,11 @@
 # MidasCreed System Design Document (SDD)
-Last Updated: 2026-07-09
-Version: v4.0
-Brief Project Description: Corporate website and internal engagement dashboard for MidasCreed — an AI automation firm that builds working agent systems for businesses. The platform combines a high-fidelity public-facing marketing website with a private, Credentials-authenticated internal pipeline dashboard used to manage prospect engagement, follow-up sequences, financial tracking, and case study management.
+Last Updated: 2026-07-12
+Version: v4.1
+Brief Project Description: Corporate website and internal engagement dashboard for MidasCreed — an AI consultancy based in Lilongwe, Malawi, that helps businesses adopt AI deliberately through a structured four-track framework (Audit & Awareness → Enablement → Integration → Infrastructure). The platform combines a high-fidelity public-facing marketing website with a private, Credentials-authenticated internal pipeline dashboard used to manage prospect engagement, follow-up sequences, financial tracking, and case study management.
 Framework: M.A.S.T.E.R. (Model → Architecture → Scale → Tradeoffs → Execution → Resilience)
 
 **Changelog:**
+- **v4.1 (2026-07-12):** Minor Feature — Website Content Update (11.0). Updated Public Website functional requirements to reflect: four-track service model (AI Audit & Awareness / Enablement / Integration / Infrastructure), accurate AI-consultancy positioning, corrected hero copy, removal of Aurum AI nav item, renamed "AI Adoption Framework" section, full About/Why Choose Us rewrites, updated footer tagline and services list, and blog rework toward framework/case-study content. No dashboard, data model, or NFR changes.
 - **v4.0 (2026-07-09):** Full SDD rewrite consolidating Dashboard Build Brief, DB Schema, and Public Positioning documents. Added complete M.A.S.T.E.R. coverage for E and R sections. Absorbed all implementation history as of Capsule 10.0.
 - **v3.0 (2026-07-09):** Dashboard Expansion (Global Payments View, Reports Library, Proof Points management, and System Settings/Analytics).
 - **v2.0 (2026-07-08):** Introduced Internal Engagement Tracker (Prospect and Payment data models) with progressive disclosure UI.
