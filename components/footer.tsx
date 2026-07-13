@@ -80,14 +80,6 @@ export function Footer() {
                   AI Infrastructure
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/services/web-systems"
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                >
-                  Web & Systems Development
-                </Link>
-              </li>
             </ul>
           </div>
           <div>

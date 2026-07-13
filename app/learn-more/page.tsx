@@ -2,68 +2,68 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Brain, Boxes, Glasses, Globe, Zap, Users, Shield, BarChart } from "lucide-react"
+import { Lightbulb, Rocket, Cpu, Server, Zap, Boxes, Shield, BarChart } from "lucide-react"
 import { TestimonialMarquee } from "@/components/testimonial-marquee"
 import { cn } from "@/lib/utils"
 
 const services = [
   {
-    title: "Artificial Intelligence",
+    title: "AI Audit & Awareness",
     description:
-      "Harness the power of artificial intelligence and modern web technologies to create intelligent, responsive, and user-friendly digital solutions tailored to your specific business needs.",
-    icon: Brain,
-    href: "/services/ai",
+      "For businesses figuring out where AI actually fits. A short, practical session mapping your operations and showing plainly where AI could help — and where it honestly wouldn't.",
+    icon: Lightbulb,
+    href: "/services/awareness",
     gradient: "from-blue-500 to-indigo-500",
   },
   {
-    title: "Blockchain & Web3",
+    title: "AI Enablement",
     description:
-      "Step into the future of decentralized technology with our Web3 expertise. We help businesses implement blockchain solutions, smart contracts, and decentralized applications.",
-    icon: Boxes,
-    href: "/services/web3",
+      "Already experimenting with AI tools informally? We get the right one properly set up inside how your team actually works, with real training so it sticks.",
+    icon: Rocket,
+    href: "/services/enablement",
     gradient: "from-indigo-500 to-blue-700",
   },
   {
-    title: "Augmented and Virtual Reality",
+    title: "AI Integration",
     description:
-      "Transform customer experiences with immersive augmented and virtual reality applications that bring your products and services to life in revolutionary ways.",
-    icon: Glasses,
-    href: "/services/ar",
+      "For businesses with a specific, repetitive workflow worth automating. We audit it, build a working AI agent for it, and manage it as an ongoing service.",
+    icon: Cpu,
+    href: "/services/integration",
     gradient: "from-blue-400 to-cyan-500",
   },
   {
-    title: "Business Automation",
+    title: "AI Infrastructure",
     description:
-      "Streamline your operations with custom automation solutions that reduce manual tasks, minimize errors, and allow your team to focus on high-value activities.",
-    icon: Globe,
-    href: "/services/web-design",
+      "For organizations with more complex, large-scale AI needs — private deployment, orchestration across systems.",
+    icon: Server,
+    href: "/services/infrastructure",
     gradient: "from-sky-500 to-blue-600",
   },
 ]
 
 const advantages = [
   {
-    title: "Expert Team",
+    title: "No Hype, Just Execution",
     description:
-      "Our specialists bring years of experience in AI, blockchain, AR/VR, and web development to every project.",
-    icon: Users,
-  },
-  {
-    title: "African-Focused Solutions",
-    description:
-      "We understand the unique challenges and opportunities in the African market and build solutions that address local needs.",
+      "We don't sell AI strategy decks. Every engagement starts with a working audit and ends with something real deployed and running — not a proposal.",
     icon: Zap,
   },
   {
-    title: "Secure & Reliable",
+    title: "Built Into How You Already Work",
     description:
-      "We prioritize security and reliability in all our solutions, ensuring your business operations run smoothly.",
+      "Agents connect to the tools you already use — your inbox, CRM, spreadsheets — instead of asking your team to learn something new.",
+    icon: Boxes,
+  },
+  {
+    title: "Maintained, Not Abandoned",
+    description:
+      "An agent that breaks silently is worse than no agent. We monitor, fix, and extend what we build for as long as you're a client.",
     icon: Shield,
   },
   {
-    title: "Data-Driven Approach",
+    title: "Right-Sized for Where You Are",
     description:
-      "Our solutions are built on solid data analysis, ensuring measurable results and continuous improvement.",
+      "Whether you're a five-person business automating your first workflow or a larger organization scaling AI across departments, the approach is the same structured process.",
     icon: BarChart,
   },
 ]
@@ -110,21 +110,16 @@ export default function LearnMorePage() {
         <div className="container relative z-10">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div className="order-2 lg:order-1">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl mb-6"></h1>
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl mb-6">Who We Are</h1>
               <div className="space-y-4 text-gray-300">
                 <p className="text-lg">
-                  MidasCreed is a forward-thinking technology company based in Malawi, dedicated to transforming
-                  businesses across Africa through innovative digital solutions. Our mission is to bridge the technology
-                  gap and empower local businesses to compete on a global scale.
+                  MidasCreed is an AI consultancy based in Lilongwe, Malawi, helping businesses adopt AI deliberately — starting with a single automated workflow, built to actually keep working.
                 </p>
                 <p>
-                  Founded by a team of passionate tech enthusiasts with extensive experience in AI, blockchain, and web
-                  development, we combine cutting-edge technology with deep understanding of local markets to create
-                  solutions that drive real business growth.
+                  Most companies hear about AI constantly and still don't know where it belongs in their own operations. We start with an audit: mapping a business's real, repetitive workflows to find the one automation with the most value for the least effort. Then we build it — a working AI agent, deployed and maintained, not a proof of concept that gets shelved.
                 </p>
                 <p>
-                  Just as the mythical King Midas turned everything he touched to gold, we aim to transform every
-                  project into digital excellence, creating lasting value for our clients and communities.
+                  Founded in 2023, MidasCreed works with businesses across Malawi, the wider African region, and internationally — applying the same structured approach regardless of scale.
                 </p>
               </div>
             </div>
