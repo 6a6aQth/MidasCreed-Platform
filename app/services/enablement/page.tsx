@@ -2,10 +2,16 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardContent } from "@/components/ui/card"
+import { ShootingStars } from "@/components/ui/shooting-stars"
+import { StarsBackground } from "@/components/ui/stars-background"
 
 export default function EnablementPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Animated backgrounds */}
+      <StarsBackground className="z-0" />
+      <ShootingStars className="z-0" />
+      <div className="flex flex-col min-h-screen relative z-10">
       <div className="container py-24 mt-16 max-w-[1200px] mx-auto">
         {/* Header Section */}
         <section className="mb-24">
@@ -74,6 +80,7 @@ export default function EnablementPage() {
             </Button>
           </div>
         </section>
+      </div>
       </div>
     </div>
   )
