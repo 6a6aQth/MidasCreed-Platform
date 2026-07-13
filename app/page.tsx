@@ -10,30 +10,30 @@ const services = [
   {
     title: "Awareness",
     description:
-      "We help you understand how AI Agents can streamline operations and identify high-leverage opportunities in your workflow.",
+      "For businesses figuring out where AI actually fits. A short, practical session mapping your operations and showing plainly where AI could help — and where it honestly wouldn't.",
     href: "/services/awareness",
-    icon: "Lightbulb",
+    icon: "Lightbulb" as const,
   },
   {
     title: "Enablement",
     description:
-      "We train your team and set up the foundational systems needed to deploy intelligent agents safely and effectively.",
+      "Already experimenting with AI tools informally? We get the right one properly set up inside how your team actually works, with real training so it sticks.",
     href: "/services/enablement",
-    icon: "Rocket",
+    icon: "Rocket" as const,
   },
   {
     title: "Integration",
     description:
-      "We deploy custom AI Agents directly into your existing business channels and customer touchpoints with zero friction.",
+      "For businesses with a specific, repetitive workflow worth automating. We audit it, build a working AI agent for it, and manage it as an ongoing service.",
     href: "/services/integration",
-    icon: "Cpu",
+    icon: "Cpu" as const,
   },
   {
     title: "Infrastructure",
     description:
-      "We manage, monitor, and scale your AI operations, ensuring resilience and consistent ROI for your business.",
+      "For organizations with more complex, large-scale AI needs — private deployment, orchestration across systems.",
     href: "/services/infrastructure",
-    icon: "Server",
+    icon: "Server" as const,
   },
 ]
 
@@ -47,10 +47,10 @@ export default function Home() {
         {/* Hero Content */}
         <div className="container relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center gap-8 text-center text-white">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-            Deploy <span className="text-blue-400">AI Agents</span> to Automate Operations
+            <span className="text-blue-400">AI Consultancy</span> for Businesses Ready to Automate
           </h1>
           <p className="max-w-[700px] text-lg text-gray-200 sm:text-xl">
-            We build, integrate, and manage autonomous systems that handle your operations so you can focus on growth. No hype, just execution.
+            We audit your operations, find where AI actually creates value, then build and manage the agents that do the work.
           </p>
           <div className="flex flex-col gap-4 min-[400px]:flex-row">
             <Button asChild size="lg" className="blue-gradient button-glow rounded-full text-primary-foreground">
@@ -72,8 +72,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
         <div className="container relative">
           <div className="mx-auto mb-12 max-w-[800px] text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">Enterprise AI Adoption</h2>
-            <p className="mt-4 text-gray-400">A structured framework to take you from awareness to full infrastructure deployment.</p>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">The AI Adoption Framework</h2>
+            <p className="mt-4 text-gray-400">A structured path from first awareness to fully AI-native operations.</p>
           </div>
           <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 max-w-6xl mx-auto">
             {services.map((service) => (

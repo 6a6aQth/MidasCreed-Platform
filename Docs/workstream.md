@@ -73,14 +73,14 @@ This file combines the planned development roadmap and the reactive work log (fi
 - [ ] Implement `Settings` tab providing a basic analytics dashboard chart UI and mock setting toggles for team management and workflow offsets.
 
 ### 11.0 Website Content Update (generated against SDD v4.1)
-- [ ] 11.1 — Footer: replace tagline with "AI Consultancy — from first automation to AI-native operations"; replace Services list with the four tracks + Web & Systems Development; fix tel: href to +265885535374.
-- [ ] 11.2 — Header (desktop + mobile): remove Aurum AI nav item and mobile drawer button entirely; update services dropdown array to four-track list.
-- [ ] 11.3 — Homepage: rebuild services cards with four-track copy (AI Audit & Awareness, AI Enablement, AI Integration, AI Infrastructure) matching the content update doc descriptions.
-- [ ] 11.4 — Homepage: rename section header from "Enterprise AI Adoption" → "The AI Adoption Framework"; update subtitle.
-- [ ] 11.5 — Homepage: rewrite hero `<h1>` and `<p>` to the finalized consultant positioning copy.
-- [ ] 11.6 — About page (`/about`): full rewrite of Our Story and Why Choose Us four cards; update subtitle.
-- [ ] 11.7 — Metadata (layout.tsx): update `<title>`, `description`, and `keywords` to AI-consultancy framing.
-- [ ] 11.8 — Blog (`/blog`): retire three current posts; add three placeholder posts (Framework / How We Work / Case Study) using correct tags in the existing format.
+- [x] 11.1 — Footer: replace tagline with "AI Consultancy — from first automation to AI-native operations"; replace Services list with the four tracks + Web & Systems Development; fix tel: href to +265885535374.
+- [x] 11.2 — Header (desktop + mobile): remove Aurum AI nav item and mobile drawer button entirely; update services dropdown array to four-track list.
+- [x] 11.3 — Homepage: rebuild services cards with four-track copy (AI Audit & Awareness, AI Enablement, AI Integration, AI Infrastructure) matching the content update doc descriptions.
+- [x] 11.4 — Homepage: rename section header from "Enterprise AI Adoption" → "The AI Adoption Framework"; update subtitle.
+- [x] 11.5 — Homepage: rewrite hero `<h1>` and `<p>` to the finalized consultant positioning copy.
+- [x] 11.6 — About page (`/about`): full rewrite of Our Story and Why Choose Us four cards; update subtitle.
+- [x] 11.7 — Metadata (layout.tsx): update `<title>`, `description`, and `keywords` to AI-consultancy framing.
+- [x] 11.8 — Blog (`/blog`): retire three current posts; add three placeholder posts (Framework / How We Work / Case Study) using correct tags in the existing format.
 
 ---
 ## Reactive Log

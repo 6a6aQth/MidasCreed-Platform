@@ -25,7 +25,7 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">About MidasCreed</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">A Touch of Your Future Today</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">AI Consultancy — from first automation to AI-native operations</p>
             <div className="flex space-x-4">
               <Link
                 href="https://x.com/MidasCreed"
@@ -50,34 +50,42 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/services/ai"
+                  href="/services/awareness"
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                 >
-                  AI Solutions
+                  AI Audit & Awareness
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services/ar"
+                  href="/services/enablement"
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                 >
-                  AR Experience
+                  AI Enablement
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services/web3"
+                  href="/services/integration"
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                 >
-                  Web3 Integration
+                  AI Integration
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services/web-design"
+                  href="/services/infrastructure"
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                 >
-                  Web Design
+                  AI Infrastructure
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/web-systems"
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                >
+                  Web & Systems Development
                 </Link>
               </li>
             </ul>
@@ -117,7 +125,7 @@ export function Footer() {
               <li className="text-gray-600 dark:text-gray-300">Lilongwe, Malawi</li>
               <li>
                 <a
-                  href="tel:+265000000000"
+                  href="tel:+265885535374"
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   +265 885 53 53 74

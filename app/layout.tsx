@@ -13,16 +13,16 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: "MidasCreed - A Touch of Your Future Today",
-  description: "Innovating Africa's Future with Emerging Technologies",
-  keywords: "AI, AR, Web3, Web Design, Malawi, Technology",
+  title: "MidasCreed — AI Consultancy for Businesses Ready to Automate",
+  description: "We audit your operations, find where AI actually creates value, then build and manage the agents that do the work.",
+  keywords: "AI consultancy, AI automation, AI agents, Malawi, Africa, business automation",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-icon.png",
     shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

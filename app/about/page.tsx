@@ -7,7 +7,7 @@ export default function AboutPage() {
       <div className="mx-auto max-w-[800px] space-y-12">
         <div className="space-y-4 text-center">
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About MidasCreed</h1>
-          <p className="text-xl text-muted-foreground">A Touch of Your Future Today</p>
+          <p className="text-xl text-muted-foreground">AI Consultancy. Based in Lilongwe, Malawi.</p>
 
           {/* Floating Crown Image */}
           <div className="flex justify-center py-8">
@@ -24,52 +24,43 @@ export default function AboutPage() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold">Our Story</h2>
+          <h2 className="text-2xl font-bold">Who We Are</h2>
           <p className="text-muted-foreground">
-            MidasCreed was founded with a vision to transform businesses across Malawi and Africa through emerging
-            technologies. What sets us apart is our deep understanding of both global tech trends and local challenges. We don't just build digital products — we research, innovate, and tailor technology to solve real-world problems within African communities and businesses..
+            MidasCreed is an AI consultancy based in Lilongwe, Malawi, helping businesses adopt AI deliberately — starting with a single automated workflow, built to actually keep working.
+          </p>
+          <p className="text-muted-foreground">
+            Most companies hear about AI constantly and still don't know where it belongs in their own operations. We start with an audit: mapping a business's real, repetitive workflows to find the one automation with the most value for the least effort. Then we build it — a working AI agent, deployed and maintained, not a proof of concept that gets shelved.
+          </p>
+          <p className="text-muted-foreground">
+            Founded in 2023, MidasCreed works with businesses across Malawi, the wider African region, and internationally — applying the same structured approach regardless of scale.
           </p>
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold">Our Mission</h2>
-          <p className="text-muted-foreground">
-            To empower businesses and communities through innovative technological solutions, making cutting-edge
-            technology accessible and beneficial for all.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold">Why Choose MidasCreed</h2>
+          <h2 className="text-2xl font-bold">Why Choose Us</h2>
           <div className="grid gap-6 sm:grid-cols-2">
             <Card>
               <CardContent className="pt-6">
-                <h3 className="font-semibold">Local Expertise</h3>
-                <p className="text-sm text-muted-foreground">
-                  Deep understanding of the local market and its unique challenges
-                </p>
+                <h3 className="font-semibold">No Hype, Just Execution</h3>
+                <p className="text-sm text-muted-foreground">We don't sell AI strategy decks. Every engagement starts with a working audit and ends with something real deployed and running — not a proposal.</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="pt-6">
-                <h3 className="font-semibold">Innovation First</h3>
-                <p className="text-sm text-muted-foreground">Cutting-edge solutions using the latest technologies</p>
+                <h3 className="font-semibold">Built Into How You Already Work</h3>
+                <p className="text-sm text-muted-foreground">Agents connect to the tools you already use — your inbox, CRM, spreadsheets — instead of asking your team to learn something new.</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="pt-6">
-                <h3 className="font-semibold">Customer Focus</h3>
-                <p className="text-sm text-muted-foreground">
-                  Dedicated to delivering value and exceeding expectations
-                </p>
+                <h3 className="font-semibold">Maintained, Not Abandoned</h3>
+                <p className="text-sm text-muted-foreground">An agent that breaks silently is worse than no agent. We monitor, fix, and extend what we build for as long as you're a client.</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="pt-6">
-                <h3 className="font-semibold">Sustainable Impact</h3>
-                <p className="text-sm text-muted-foreground">
-                  Committed to creating lasting positive change in our communities
-                </p>
+                <h3 className="font-semibold">Right-Sized for Where You Are</h3>
+                <p className="text-sm text-muted-foreground">Whether you're a five-person business automating your first workflow or a larger organization scaling AI across departments, the approach is the same structured process — scaled to fit.</p>
               </CardContent>
             </Card>
           </div>

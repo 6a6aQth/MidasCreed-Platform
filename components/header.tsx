@@ -29,24 +29,24 @@ import {
 
 const services = [
   {
-    title: "AI Solutions",
-    description: "Research, design, deploy AI Systems",
-    href: "/services/ai",
+    title: "AI Audit & Awareness",
+    description: "Map operations and find where AI fits",
+    href: "/services/awareness",
   },
   {
-    title: "AR Experience",
-    description: "Immersive augmented reality solutions",
-    href: "/services/ar",
+    title: "AI Enablement",
+    description: "Get tools properly set up with real training",
+    href: "/services/enablement",
   },
   {
-    title: "Web3 Exploration",
-    description: "Blockchain and decentralized applications",
-    href: "/services/web3",
+    title: "AI Integration",
+    description: "Build working AI agents for repetitive workflows",
+    href: "/services/integration",
   },
   {
-    title: "Business automation",
-    description: "Functional systems that automate workflows",
-    href: "/services/web-design",
+    title: "AI Infrastructure",
+    description: "Large-scale AI needs and system orchestration",
+    href: "/services/infrastructure",
   },
 ]
 
@@ -170,7 +170,6 @@ export function Header() {
             </NavigationMenuList>
             <NavigationMenuViewport />
           </NavigationMenu>
-          <Link href="https://aurum.midascreed.com" target="_blank" rel="noopener noreferrer" className={cn(navigationMenuTriggerStyle(), "glow-effect")}>Aurum AI</Link>
         </div>
         <div className="md:hidden flex items-center">
           <Drawer>
@@ -221,7 +220,7 @@ export function Header() {
               </nav>
               <DrawerFooter>
                 <DrawerClose asChild>
-                  <Link href="https://aurum.midascreed.com/" target="_blank" rel="noopener noreferrer" className="w-full block text-center bg-blue-600 text-white font-bold py-3 rounded-md hover:bg-blue-700 transition">Aurum AI</Link>
+                  <button className="w-full block text-center bg-transparent text-transparent font-bold py-3 rounded-md">&nbsp;</button>
                 </DrawerClose>
               </DrawerFooter>
             </DrawerContent>
